@@ -5,4 +5,6 @@ function sum(a, b) {
   function floatingPoint(firstNum, secondNum) {
     return firstNum + secondNum;
   }
+
+  module.exports = floatingPoint;
   module.exports = sum;
