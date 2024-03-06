@@ -71,6 +71,50 @@ function caesarCipher(word, shiftFactor) {
 }
 
 
+function analyzeArray(arr) {
+  // Check if input is an array
+  if (!Array.isArray(arr)) {
+    throw new Error('Input must be an array');
+  }
+
+  // Check if the array is empty
+  if (arr.length === 0) {
+    return {
+      average: NaN,
+      min: NaN,
+      max: NaN,
+      length: 0
+    };
+  }
+
+  let sum = 0;
+  let min = arr[0];
+  let max = arr[0];
+
+  // Calculate sum, min, and max
+  for (let num of arr) {
+    sum += num;
+    if (num < min) {
+      min = num;
+    }
+    if (num > max) {
+      max = num;
+    }
+  }
+
+  // Calculate average
+  const average = sum / arr.length;
+
+  // Return analysis results
+  return {
+    average,
+    min,
+    max,
+    length: arr.length
+  };
+}
+
+
 
 
 
@@ -80,5 +124,6 @@ module.exports = {
   capitalize: capitalize,
   reverseString: reverseString,
   calculator: calculator,
-  caesarCipher: caesarCipher
+  caesarCipher: caesarCipher,
+  analyzeArray: analyzeArray
 };
