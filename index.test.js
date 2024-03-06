@@ -1,4 +1,4 @@
-const { sum, floatingPoint, capitalize, reverseString, calculator } = require('./index');
+const { sum, floatingPoint, capitalize, reverseString, calculator, caesarCipher } = require('./index');
 
 
 test('adds 1 + 2 to equal 3', () => {
@@ -40,4 +40,41 @@ describe('calculator', () => {
     expect(calculator.subtract(535, 35)).toBe(500);
   })
 
+});
+
+
+
+
+// CaesarCipher
+
+
+
+describe('Caesar Cipher', () => {
+  test('Encrypts a string with shift factor 0', () => {
+    expect(caesarCipher('Hello', 0)).toBe('Hello');
+  });
+
+  test('Encrypts a string with positive shift factor', () => {
+    expect(caesarCipher('Hello', 1)).toBe('Ifmmp');
+  });
+
+  test('Encrypts a string with negative shift factor', () => {
+    expect(caesarCipher('Hello', -1)).toBe('Gdkkn');
+  });
+
+  test('Handles uppercase letters correctly', () => {
+    expect(caesarCipher('Hello World', 5)).toBe('Mjqqt Btwqi');
+  });
+
+  test('Handles non-alphabetic characters correctly', () => {
+    expect(caesarCipher('Hello, World!', 3)).toBe('Khoor, Zruog!');
+  });
+
+  test('Encrypts a string with large shift factor', () => {
+    expect(caesarCipher('Hello', 26)).toBe('Hello');
+  });
+
+  test('Encrypts a string with shift factor greater than alphabet length', () => {
+    expect(caesarCipher('Hello', 30)).toBe('Lipps');
+  });
 });

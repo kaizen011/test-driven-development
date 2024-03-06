@@ -41,71 +41,44 @@ let calculator = {
 
 };
 
-function caesarCipher(word, shiftFactor){
-  let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-  let i = 0;
+
+function caesarCipher(word, shiftFactor) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
   let newWord = '';
-  let tempLet = '';
-  let punctuation = ['.', ',', '!', '?', ';', ':', '-', "'", '"', '(', ')', '[', ']', '{', '}', ' '];
-  let upperCaseLet = '';
-  let lowerCaseLet = '';
+  for (let letter of word) {
+    if (alphabet.includes(letter.toLowerCase())) {
+      let isUpperCase = letter === letter.toUpperCase();
+      let index = alphabet.indexOf(letter.toLowerCase());
+      let shiftedIndex = (index + shiftFactor) % 26;
 
-  for(letter of word){
-
-    for(punki of punctuation){
-      if(letter == punki){
-      newWord += punki;
+      if (shiftedIndex < 0) {
+        shiftedIndex += 26;
       }
-    }
-    
-    
-    for(alfa of alphabet){
-      if(letter == letter.toUpperCase()) {
 
-        var index = alphabet.indexOf(alfa);
+      let shiftedLetter = alphabet[shiftedIndex];
 
-        tempLet = alfa[index+shiftFactor];
-        upperCaseLet = tempLet.toUpperCase();
-        newWord = newWord + upperCaseLet;
-
-      } else {
-        tempLet = alfa[index+shiftFactor];
-        lowerCaseLet = tempLet.toUpperCase();
-        newWord = newWord + lowerCaseLet;
+      if (isUpperCase) {
+        shiftedLetter = shiftedLetter.toUpperCase();
       }
+
+      newWord += shiftedLetter;
+    } else {
+      newWord += letter;
     }
-
-
-
-    
-    }
-  
   }
 
-    // if(letter == alphabet[i]){
+  return newWord;
+}
 
-    //   for(i; i < alphabet.length(); i++){
-    //      if(letter == letter.toUpperCase()) {
-         
-    //       tempLet = alphabet[i+shiftFactor];
-    //       newWord = newWord + tempLet.toUpperCase();
-    //       tempLet = '';
 
-    //     } else {
-    //       tempLet = alphabet[i+shiftFactor];
-    //       newWord = newWord + tempLet.toLocaleLowerCase();
-    //       tempLet = '';
-    //     }
-         
-    //   }
-      
-    //  }
-  
+
+
 
 module.exports = {
   sum: sum,
   floatingPoint: floatingPoint,
   capitalize: capitalize,
   reverseString: reverseString,
-  calculator: calculator
+  calculator: calculator,
+  caesarCipher: caesarCipher
 };
