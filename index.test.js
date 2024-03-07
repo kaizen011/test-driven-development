@@ -10,6 +10,11 @@ test('adding floating point numbers', () => {
     expect(floatingPoint(0.1, 0.2)).toBeCloseTo(0.3);
 });
 
+// Untested test 
+test('gets the sum of an array ([1,2,3,4])', () => {
+  expect(sumGetter([1,2,3,4])).toBe(10);
+});
+
 
 // Odin Poject Testing Practice Assignment
 
