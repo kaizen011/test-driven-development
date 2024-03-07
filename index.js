@@ -6,6 +6,12 @@ function floatingPoint(firstNum, secondNum) {
     return firstNum + secondNum;
   }
 
+// Calculates the sum of an array
+
+function sumGetter(arr){
+    
+    
+}
 
 // Odin Project Testing Practice Assignment
 
@@ -125,5 +131,6 @@ module.exports = {
   reverseString: reverseString,
   calculator: calculator,
   caesarCipher: caesarCipher,
-  analyzeArray: analyzeArray
+  analyzeArray: analyzeArray,
+  sumGetter: sumGetter,
 };
