@@ -8,10 +8,15 @@ function floatingPoint(firstNum, secondNum) {
 
 // Calculates the sum of an array
 
-function sumGetter(arr){
-    
-    
+function sumGetter(arrayy){
+    let i = 0;
+    for(let num of arrayy){
+       i = i + num;
+    }    
+    return i;
 }
+
+
 
 // Odin Project Testing Practice Assignment
 
