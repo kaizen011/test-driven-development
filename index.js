@@ -17,9 +17,7 @@ function sumGetter(arrayy){
 }
 
 
-
 // Odin Project Testing Practice Assignment
-
 function capitalize(string){
   let firstChar = string[0]; 
   firstChar = firstChar.toUpperCase();
